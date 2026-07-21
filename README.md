@@ -2,8 +2,6 @@
 
 ### A World Critic Model for Vision-Language-Action Reinforcement Learning
 
-Official repository of WCM, A World Critic Model for Vision-Language-Action Reinforcement Learning.
-
 <div align="center">
   <a href="https://github.com/sylvestf/LIBERO-plus">📄 <strong>Paper</strong></a>
   &nbsp;|&nbsp;
@@ -11,6 +9,14 @@ Official repository of WCM, A World Critic Model for Vision-Language-Action Rein
   &nbsp;|&nbsp;
   <a href="https://github.com/sylvestf/LIBERO-plus">🌐 <strong>Website</strong></a>
 </div>
+
+<br>
+
+<div align="center">
+  <img src="assets/main_fig.png" alt="Description" width="90%">
+</div>
+
+<br>
 
 WCM is a history-aware critic for partially observable robot control. It jointly learns to estimate the value
 of the current state and to predict the next latent state, giving VLA reinforcement learning a representation
