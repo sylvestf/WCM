@@ -25,7 +25,7 @@ that is trained to capture dynamics instead of only fitting scalar returns.
 <table align="center" style="border: none; width: 100%;">
   <tr>
     <td align="center" colspan="3" style="border: none; padding: 0 0 12px 0; font-size: 1.1em; font-weight: 500; color:rgb(234, 238, 243);">
-      WCM trained on 100 real-world stovetop organization episodes.
+      WCM trained on 100 real-world stovetop organization episodes. [Training for 30 minutes]
     </td>
   </tr>
   <tr>
