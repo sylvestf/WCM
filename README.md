@@ -10,10 +10,19 @@ WCM is a history-aware critic for partially observable robot control. It jointly
 of the current state and to predict the next latent state, giving VLA reinforcement learning a representation
 that is trained to capture dynamics instead of only fitting scalar returns.
 
-<div style="display: flex; gap: 10px; justify-content: center;">
-  <img src="assets/value_suc_00.gif" width="30%" alt="Video 1">
-  <img src="assets/value_fail_01.gif" width="30%" alt="Video 2">
-  <img src="assets/value_fail_02.gif" width="30%" alt="Video 3">
+<div align="center" style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+  <div style="border: 1px solid #ddd; border-radius: 6px; padding: 6px; width: 27%; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+    <img src="assets/value_suc_00.gif" width="%" alt="Success">
+    <p align="center" style="margin: 8px 0 0 0; color: #22863a;"><strong>✅ Success</strong></p>
+  </div>
+  <div style="border: 1px solid #ddd; border-radius: 10px; padding: 10px; width: 27%; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+    <img src="assets/value_fail_01.gif" width="100%" alt="Failure 1">
+    <p align="center" style="margin: 8px 0 0 0; color: #d73a49;"><strong>❌ Fail: Obj Dropped</strong></p>
+  </div>
+  <div style="border: 1px solid #ddd; border-radius: 10px; padding: 10px; width: 27%; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+    <img src="assets/value_fail_02.gif" width="100%" alt="Failure 2">
+    <p align="center" style="margin: 8px 0 0 0; color: #d73a49;"><strong>❌ Fail: Random Motion</strong></p>
+  </div>
 </div>
 
 ## Why WCM?
