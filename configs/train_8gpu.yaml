@@ -1,0 +1,76 @@
+output_dir: outputs/wcm_v2
+seed: 3072
+epochs: 100
+per_device_batch_size: 32
+eval_batch_size: 64
+num_workers: 8
+gradient_accumulation_steps: 1
+max_grad_norm: 1.0
+precision: bf16
+log_every: 20
+eval_every_epochs: 1
+save_every_epochs: 1
+expected_world_size: 8
+ddp_timeout_minutes: 30
+deterministic: false
+
+data:
+  repo_id: your-user/your-lerobot-dataset-with-return
+  root: /path/to/lerobot_v31_dataset
+  revision: null
+  image_keys:
+    - observation.images.front
+  action_key: action
+  state_key: observation.state
+  return_key: return
+  history_size: 3
+  prediction_horizon: 1
+  val_fraction: 0.1
+  split_seed: 3072
+  normalize_action: true
+  action_mean: null
+  action_std: null
+  normalization_epsilon: 1.0e-6
+
+model:
+  action_dim: null
+  state_dim: null
+  latent_dim: 384
+  max_views: 16
+  trunk_depth: 6
+  trunk_heads: 8
+  trunk_mlp_ratio: 4.0
+  dropout: 0.1
+  max_history: 16
+  value_hidden_dim: 384
+  dynamics_depth: 3
+  action_hidden_dim: 384
+  predict_state_vector: false
+  vision:
+    model_name: google/vit-base-patch16-224-in21k # hf name / Local path supported
+    image_size: 224
+    trainable: true
+    pretrained: true
+  language:
+    model_name: openai/clip-vit-base-patch32 # hf name / Local path supported
+    max_length: 77
+    trainable: false
+    pretrained: true
+    fusion_layers: 2
+    fusion_heads: 8
+    fusion_dropout: 0.0
+
+loss:
+  value_weight: 1.0
+  next_state_weight: 0.1
+  next_state_vector_weight: 0.0
+  sigreg_weight: 0.01
+  sigreg_knots: 17
+  sigreg_num_projections: 1024
+
+optim:
+  lr: 5.0e-5
+  weight_decay: 1.0e-3
+  betas: [0.9, 0.95]
+  warmup_steps: 1000
+  min_lr_ratio: 0.1

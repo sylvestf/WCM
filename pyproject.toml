@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "world-critic-model"
+version = "0.2.0"
+description = "Language-conditioned action-free value estimation with action-conditioned latent world modeling"
+requires-python = ">=3.12,<3.14"
+dependencies = [
+  "torch>=2.7,<2.8",
+  "torchvision>=0.22,<0.23",
+  # LeRobot 0.5.1 allows torchcodec up to 0.10, but those newer wheels target
+  # newer PyTorch ABIs. WCM's torch 2.7 environment must use torchcodec 0.5.x.
+  "torchcodec>=0.5,<0.6; sys_platform != 'win32' and (sys_platform != 'linux' or (platform_machine != 'aarch64' and platform_machine != 'arm64' and platform_machine != 'armv7l')) and (sys_platform != 'darwin' or platform_machine != 'x86_64')",
+  # LeRobot 0.5.1 requires huggingface-hub>=1.0.0.  Transformers 4.x
+  # requires huggingface-hub<1.0, so the two ranges are unsatisfiable.
+  # Transformers 5 is the compatible API generation for this LeRobot release.
+  "transformers>=5,<6",
+  "huggingface-hub>=1,<2",
+  "lerobot>=0.5.1,<0.6",
+  "datasets>=3.2,<5",
+  "numpy>=1.26,<3",
+  "PyYAML>=6.0,<7",
+  "matplotlib>=3.8,<4",
+  "h5py",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8.3,<9"]
+all = ["pytest>=8.3,<9"]
+
+[tool.setuptools.packages.find]
+include = ["world_critic*", "scripts*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
