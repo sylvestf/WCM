@@ -5,7 +5,7 @@
 <div align="center">
   <a href="https://github.com/sylvestf/LIBERO-plus">📄 <strong>Paper</strong></a>
   &nbsp;|&nbsp;
-  <a href="https://huggingface.co/collections/Sylvest/world-critic-model-wcm">💾 <strong>Checkpoints &amp; Data</strong></a>
+  <a href="https://huggingface.co/collections/Sylvest/wcm">💾 <strong>Checkpoints &amp; Data</strong></a>
   &nbsp;|&nbsp;
   <a href="https://github.com/sylvestf/LIBERO-plus">🌐 <strong>Website</strong></a>
 </div>
