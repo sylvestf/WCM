@@ -11,15 +11,9 @@ of the current state and to predict the next latent state, giving VLA reinforcem
 that is trained to capture dynamics instead of only fitting scalar returns.
 
 <div style="display: flex; gap: 10px; justify-content: center;">
-  <video width="30%" controls autoplay muted loop>
-    <source src="assets/value_suc_00.mp4" type="video/mp4">
-  </video>
-  <video width="30%" controls autoplay muted loop>
-    <source src="assets/value_fail_01.mp4" type="video/mp4">
-  </video>
-  <video width="30%" controls autoplay muted loop>
-    <source src="assets/value_fail_02.mp4" type="video/mp4">
-  </video>
+  <img src="assets/value_suc_00.gif" width="30%" alt="Video 1">
+  <img src="assets/value_fail_01.gif" width="30%" alt="Video 2">
+  <img src="assets/value_fail_02.gif" width="30%" alt="Video 3">
 </div>
 
 ## Why WCM?
