@@ -3,11 +3,11 @@
 ### A World Critic Model for Vision-Language-Action Reinforcement Learning
 
 <div align="center">
-  <a href="https://github.com/sylvestf/LIBERO-plus">📄 <strong>Paper</strong></a>
+  <a href="https://github.com/sylvestf/WCM">📄 <strong>Paper</strong></a>
   &nbsp;|&nbsp;
   <a href="https://huggingface.co/collections/Sylvest/wcm">💾 <strong>Checkpoints &amp; Data</strong></a>
   &nbsp;|&nbsp;
-  <a href="https://github.com/sylvestf/LIBERO-plus">🌐 <strong>Website</strong></a>
+  <a href="https://sylvestf.github.io/wcm-homepage/">🌐 <strong>Website</strong></a>
 </div>
 
 <br>
