@@ -73,19 +73,7 @@ The value head estimates a state value from history and language. The dynamics h
 predicts the next latent state. This separates action-free value estimation from action-conditioned prediction,
 while allowing both objectives to improve the shared representation.
 
-## Highlights
-
-- History-aware value estimation for vision-language-action reinforcement learning.
-- Joint value learning, next-latent prediction, and SIGReg regularization.
-- Compatible with on-policy PPO / Flow-SDE and off-policy AWR / RECAP pipelines.
-- Evaluated with `pi_0`, `pi_0.5`, and OpenVLA-OFT across 149 simulation tasks and 7 real-world tasks.
-- No additional critic latency is required during policy-only deployment; WCM is used during RL training and
-  evaluation.
-
 ## Installation
-
-The runnable implementation targets Python 3.12 or 3.13 and pins the tested stack around PyTorch 2.7,
-TorchVision 0.22, LeRobot 0.5, Transformers 5, and TorchCodec 0.5.
 
 Using `uv`:
 
@@ -95,19 +83,19 @@ source .venv/bin/activate
 uv pip install -e ".[all]"
 ```
 
-On Windows PowerShell, activate the environment with:
+You can download the configured [ViT](https://huggingface.co/google/vit-base-patch16-224-in21k) and [CLIP](https://huggingface.co/openai/clip-vit-base-patch32) checkpoints from Hugging Face, and replace the `model_name` field in `configs/train_8gpu.yaml`.
 
-```powershell
-.venv\Scripts\Activate.ps1
+## Data Preparation
+We provide a conversion script to transform all versions of **LeRobot** dataset into the format required by **WCM**. You can use your own data and process it accordingly. Make sure to provide an explicit `--success-labels` JSON mapping like `assets/label/success_labels_liberoplus.json`, and then use the following script to perform data conversion and add returns:
+
+```bash
+bash 1_add_returns.sh
 ```
 
-The first run downloads the configured ViT and CLIP checkpoints from Hugging Face unless they are already in
-the local cache. If `uv` is not available, the final command can be replaced with
-`python -m pip install -e ".[all]"` inside a Python 3.12/3.13 environment.
+If you are preparing simulated data to test WCM, we recommend you to download the **LIBERO-Plus LeRobot dataset** from [HuggingFace](https://huggingface.co/datasets/Sylvest/libero_plus_lerobot), and then use the `1_add_returns.sh` script along with the label file `assets/label/success_labels_liberoplus.json` to reproduce the results shown on our website.
 
-## Data
 
-Training expects a LeRobot v3 dataset with task metadata and episode boundaries. The default configuration uses
+The converted data is a LeRobot v3 dataset with task metadata and episode boundaries. The default configuration uses
 the following fields:
 
 | Field | Required | Description |
@@ -122,19 +110,9 @@ Natural-language instructions are resolved from the dataset task metadata. Histo
 episode boundary, and train/validation splitting is performed by episode id. Actions are standardized using
 statistics fitted on the training episodes only.
 
-If a dataset does not yet contain `return`, prepare a private output copy with the return-conversion script in
-the source checkout:
-
-```bash
-bash 1_add_returns.sh
-```
-
-When the source has no success feature, provide an explicit `--success-labels` JSON mapping. The converter does
-not guess success labels.
-
 ## Quick start
 
-The shortest path is a one-GPU run on a prepared LeRobot dataset. First edit
+The shortest path is a 1-GPU run on a prepared LeRobot dataset. First edit
 `configs/train_8gpu.yaml` if your camera key, language/task fields, or model settings differ from the example.
 Then launch training with runtime overrides:
 
@@ -151,14 +129,13 @@ bash 3_run_eval.sh
 The main scalar metrics are written to `outputs/wcm/eval/summary.json`. Episode-level evaluation additionally
 writes JSON/CSV curves and PNG plots under `outputs/wcm/eval/episode_curves/`.
 
-For an eight-GPU run, set the dataset variables and `GPUS=8` in `2_run_train.sh`, then run:
+For an 8-GPU run, set the dataset variables and `GPUS=8` in `2_run_train.sh`, then run:
 
 ```bash
 bash 2_run_train.sh
 ```
 
-The launcher selects `python` for one GPU and `torchrun` for eight GPUs. It fails early when the requested CUDA
-devices are not visible; CPU/Gloo mode is intended only for an explicit smoke test.
+The launcher selects `python` for one GPU and `torchrun` for 8 GPUs.
 
 ## Outputs and checkpoints
 
@@ -192,8 +169,7 @@ See the [paper]() for complete baselines, per-task results, ablations, and exper
 
 ## Citation
 
-The current paper PDF is an anonymized CoRL submission. Replace the author field with the final author list
-when the camera-ready version is available.
+If you find this work useful for your research, please cite our paper:
 
 ```bibtex
 @inproceedings{wcm2026,
