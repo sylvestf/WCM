@@ -4,7 +4,13 @@
 
 Official repository of WCM, A World Critic Model for Vision-Language-Action Reinforcement Learning.
 
-[Paper (PDF)]() · [Method note]()
+<div align="center">
+  <a href="https://github.com/sylvestf/LIBERO-plus">📄 <strong>Paper</strong></a>
+  &nbsp;|&nbsp;
+  <a href="https://github.com/sylvestf/LIBERO-plus">💾 <strong>Checkpoints &amp; Data</strong></a>
+  &nbsp;|&nbsp;
+  <a href="https://github.com/sylvestf/LIBERO-plus">🌐 <strong>Website</strong></a>
+</div>
 
 WCM is a history-aware critic for partially observable robot control. It jointly learns to estimate the value
 of the current state and to predict the next latent state, giving VLA reinforcement learning a representation
@@ -166,41 +172,6 @@ outputs/<run>/
 
 `last.pt`, `best.pt`, and `epoch-XXXX.pt` contain full resume state. `deploy.pt` is the compact model/config
 bundle intended for inference and offline evaluation.
-
-## Results
-
-The following headline numbers are selected from Tables 1-3 of the paper. The reference column names the
-strongest relevant baseline reported for that benchmark/setting. LIBERO-Plus compares one-demonstration SFT
-with WCM initialized from the same model.
-
-| Benchmark / metric | Backbone | Reference baseline | WCM (ours) |
-| --- | --- | ---: | ---: |
-| ManiSkill IND average | `pi_0` | 79.2 (pi-stepNFT) | **84.4 +/- 1.2** |
-| ManiSkill IND average | `pi_0.5` | 90.9 (Flow-SDE) | **91.9 +/- 0.4** |
-| ManiSkill IND average | OpenVLA-OFT | 97.7 (PPO) | **99.0 +/- 0.4** |
-| ManiSkill OOD average | `pi_0` | 50.4 (pi-stepNFT) | **51.5 +/- 1.5** |
-| ManiSkill OOD average | `pi_0.5` | 59.5 (pi-stepNFT) | **64.4 +/- 1.4** |
-| ManiSkill OOD average | OpenVLA-OFT | 77.1 (PPO) | **77.9 +/- 0.8** |
-| LIBERO-Plus total | `pi_0` | 39.1 +/- 2.1 (One-SFT) | **72.8 +/- 1.9** |
-| LIBERO-Plus total | `pi_0.5` | 38.0 +/- 1.6 (One-SFT) | **73.7 +/- 1.4** |
-| LIBERO-Plus total | OpenVLA-OFT | 29.3 +/- 1.5 (One-SFT) | **74.0 +/- 1.8** |
-
-On the zero-shot OpenVLA-OFT ManiSkill setting, WCM improves the IND average from **0.8** to **98.7 +/- 0.3**.
-In the real-world WidowX-250S evaluation, WCM improves every task over its corresponding SFT baseline across
-7 tasks (50 trajectories per task in the reported slice); see Table 3 in the paper for per-task counts.
-
-Aggregating the counts in Table 3 over the seven real-world tasks gives **199/350 (56.9%)** for OpenVLA-OFT
-with WCM versus 167/350 (47.7%) with AWR, and **255/350 (72.9%)** for `pi_0.5` with WCM versus 220/350 (62.9%)
-with RECAP.
-
-For the two additional simulation benchmarks shown in Figure 4, WCM reaches 83.4% (`pi_0`) and 75.2% (`pi_0.5`)
-on MetaWorld, and average completion lengths of 3.918 (`pi_0`) and 4.748 (`pi_0.5`) on CALVIN.
-
-The ablations in the paper show that adding observation history alone is not enough: the world-prediction
-objective is what makes the history representation useful. A history length of 3 performs best on average in the
-reported experiments.
-
-All numbers are success rates unless noted otherwise. Error bars are reported exactly as in the paper.
 
 ## Reproducing the paper
 
