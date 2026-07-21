@@ -5,7 +5,7 @@
 <div align="center">
   <a href="https://github.com/sylvestf/LIBERO-plus">📄 <strong>Paper</strong></a>
   &nbsp;|&nbsp;
-  <a href="https://github.com/sylvestf/LIBERO-plus">💾 <strong>Checkpoints &amp; Data</strong></a>
+  <a href="https://huggingface.co/collections/Sylvest/world-critic-model-wcm">💾 <strong>Checkpoints &amp; Data</strong></a>
   &nbsp;|&nbsp;
   <a href="https://github.com/sylvestf/LIBERO-plus">🌐 <strong>Website</strong></a>
 </div>
@@ -55,19 +55,11 @@ that is trained to capture dynamics instead of only fitting scalar returns.
 Robot manipulation is a partially observable problem: one frame can hide motion, contact, and future outcomes.
 WCM addresses this representation bottleneck with a lightweight LeJEPA-style architecture:
 
-```text
-observation history + language
-              |
-        encoder / history predictor
-          /                    \
-   value head V_t        dynamics head z_(t+1)
-```
+<div align="center">
+  <img src="assets/arch.png" alt="Description" width="90%">
+</div>
 
-The training objective is
-
-```text
-L = L_value + lambda * L_prediction + eta * L_SIGReg.
-```
+<br>
 
 The value head estimates a state value from history and language. The dynamics head is action-conditioned and
 predicts the next latent state. This separates action-free value estimation from action-conditioned prediction,
@@ -92,7 +84,7 @@ We provide a conversion script to transform all versions of **LeRobot** dataset 
 bash 1_add_returns.sh
 ```
 
-If you are preparing simulated data to test WCM, we recommend you to download the **LIBERO-Plus LeRobot dataset** from [HuggingFace](https://huggingface.co/datasets/Sylvest/libero_plus_lerobot), and then use the `1_add_returns.sh` script along with the label file `assets/label/success_labels_liberoplus.json` to reproduce the results shown on our website.
+If you are preparing simulated data to test WCM, we recommend you to download the **LIBERO-Plus LeRobot dataset** from [HuggingFace](https://huggingface.co/datasets/Sylvest/libero_plus_lerobot), and then use the `1_add_returns.sh` script along with the label file `assets/label/success_labels_liberoplus.json` to reproduce the results shown on our website. Note that this dataset only contains successful trajectories.
 
 
 The converted data is a LeRobot v3 dataset with task metadata and episode boundaries. The default configuration uses
@@ -120,7 +112,7 @@ Then launch training with runtime overrides:
 bash 2_run_train.sh
 ```
 
-When training finishes, the best checkpoint is written to `outputs/wcm/checkpoints/best.pt`. Evaluate it with:
+When training finishes, the best checkpoint is written to `outputs/wcm/checkpoints/best.pt`. You can also download our pretrained [LIBERO-Plus weight](https://huggingface.co/Sylvest/WCM_LIBEROplus). Evaluate your checkpoint with:
 
 ```bash
 bash 3_run_eval.sh
