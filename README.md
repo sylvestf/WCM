@@ -12,6 +12,11 @@ that is trained to capture dynamics instead of only fitting scalar returns.
 
 <table align="center" style="border: none; width: 100%;">
   <tr>
+    <td align="center" colspan="3" style="border: none; padding: 0 0 12px 0; font-size: 1.1em; font-weight: 500; color:rgb(234, 238, 243);">
+      WCM trained on 100 real-world stovetop organization episodes.
+    </td>
+  </tr>
+  <tr>
     <td align="center" style="border: none; padding: 10px; width: 33%;">
       <div style="border: 1px solid #ddd; border-radius: 10px; padding: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
         <img src="assets/value_suc_00.gif" width="100%" alt="Success">
@@ -21,7 +26,7 @@ that is trained to capture dynamics instead of only fitting scalar returns.
     <td align="center" style="border: none; padding: 10px; width: 33%;">
       <div style="border: 1px solid #ddd; border-radius: 10px; padding: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
         <img src="assets/value_fail_01.gif" width="100%" alt="Failure 1">
-        <p style="margin: 8px 0 0 0; color: #d73a49;"><strong>❌ Fail: Obj Dropped</strong></p>
+        <p style="margin: 8px 0 0 0; color: #d73a49;"><strong>❌ Fail: Object Dropped</strong></p>
       </div>
     </td>
     <td align="center" style="border: none; padding: 10px; width: 33%;">
