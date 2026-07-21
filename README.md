@@ -129,13 +129,7 @@ bash 3_run_eval.sh
 The main scalar metrics are written to `outputs/wcm/eval/summary.json`. Episode-level evaluation additionally
 writes JSON/CSV curves and PNG plots under `outputs/wcm/eval/episode_curves/`.
 
-For an 8-GPU run, set the dataset variables and `GPUS=8` in `2_run_train.sh`, then run:
-
-```bash
-bash 2_run_train.sh
-```
-
-The launcher selects `python` for one GPU and `torchrun` for 8 GPUs.
+For an 8-GPU run, set the dataset variables and `GPUS=8` in `2_run_train.sh`. The launcher selects `python` for one GPU and `torchrun` for 8 GPUs.
 
 ## Outputs and checkpoints
 
@@ -164,7 +158,7 @@ The paper evaluates WCM in:
 - **Real world:** seven manipulation tasks on a WidowX-250S, including dynamic grasping, deformable-object
   manipulation, long-horizon cleaning, and pick-and-place.
 
-See the [paper]() for complete baselines, per-task results, ablations, and experimental details.
+See the [paper](https://github.com/sylvestf/WCM) for complete baselines, per-task results, ablations, and experimental details.
 
 
 ## Citation
