@@ -10,9 +10,17 @@ WCM is a history-aware critic for partially observable robot control. It jointly
 of the current state and to predict the next latent state, giving VLA reinforcement learning a representation
 that is trained to capture dynamics instead of only fitting scalar returns.
 
-> **Source checkout.** The paper bundle containing this README includes the paper and method note. To run the
-> commands below, use a checkout that also contains `pyproject.toml`, `world_critic/`, `configs/`, `scripts/`,
-> and the launcher scripts listed in [Repository layout](#repository-layout).
+<div style="display: flex; gap: 10px; justify-content: center;">
+  <video width="30%" controls autoplay muted loop>
+    <source src="assets/value_suc_00.mp4" type="video/mp4">
+  </video>
+  <video width="30%" controls autoplay muted loop>
+    <source src="assets/value_fail_01.mp4" type="video/mp4">
+  </video>
+  <video width="30%" controls autoplay muted loop>
+    <source src="assets/value_fail_02.mp4" type="video/mp4">
+  </video>
+</div>
 
 ## Why WCM?
 
