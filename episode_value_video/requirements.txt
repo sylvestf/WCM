@@ -1,0 +1,12 @@
+# Core WCM environments already provide NumPy and Pillow transitively.
+numpy>=1.26,<3
+Pillow>=10,<12
+imageio-ffmpeg>=0.5,<0.7
+
+# Choose at least one video backend separately:
+#   pip install av
+# or install a system ffmpeg executable.
+#
+# LeRobot v3 shard mode (--lerobot-root) additionally uses pyarrow, which is
+# normally present through datasets/LeRobot:
+#   pip install pyarrow

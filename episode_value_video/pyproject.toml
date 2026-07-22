@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "wcm-episode-value-video"
+version = "0.1.0"
+description = "Frame-aligned predicted-value overlays for World Critic episode videos"
+readme = "README.md"
+requires-python = ">=3.12,<3.14"
+dependencies = [
+  "numpy>=1.26,<3",
+  "Pillow>=10,<12",
+  "imageio-ffmpeg>=0.5,<0.7",
+]
+
+[project.optional-dependencies]
+pyav = ["av>=14,<17"]
+shards = ["pyarrow>=15,<22"]
+all = ["av>=14,<17", "pyarrow>=15,<22"]
+
+[project.scripts]
+wcm-value-video = "episode_value_video.cli:main"
+
+[tool.setuptools]
+packages = ["episode_value_video"]
+package-dir = {episode_value_video = "."}

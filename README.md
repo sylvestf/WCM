@@ -113,7 +113,7 @@ If you want to quickly test WCM, we recommend using our released real-robot pick
 
 If you are preparing simulated data to test WCM, we recommend you to download the **LIBERO-Plus LeRobot dataset** from [HuggingFace](https://huggingface.co/datasets/Sylvest/libero_plus_lerobot), and then use the `1_add_returns.sh` script along with the label file `assets/label/success_labels_liberoplus.json` to reproduce the results shown on our website. Note that this dataset only contains successful trajectories.
 
-Please note that due to the large size of the LIBERO-Plus dataset (tens of thousands of episodes), training for one epoch may take a considerable amount of time. For the 181 real-world episodes, however, training one epoch takes only about 2 minute on a single A100 GPU.
+Please note that due to the large size of the LIBERO-Plus dataset (tens of thousands of episodes), training for one epoch may take a considerable amount of time. For the 181 real-world episodes, however, training one epoch takes only about 2 minutes on a single A100 GPU.
 
 The converted data is a LeRobot v3 dataset with task metadata and episode boundaries. The default configuration uses
 the following fields:
@@ -140,7 +140,7 @@ Then launch training with runtime overrides:
 bash 2_run_train.sh
 ```
 
-When training finishes, the best checkpoint is written to `outputs/wcm/checkpoints/best.pt`. You can also try our [pretrained weight](https://huggingface.co/collections/Sylvest/wcm) on some simulation benchmarks. Evaluate your checkpoint with:
+When training finishes, the best checkpoint is written to `outputs/wcm/checkpoints/best.pt`. You can also try our [pretrained weight](https://huggingface.co/collections/Sylvest/wcm). Evaluate your checkpoint with:
 
 ```bash
 bash 3_run_eval.sh
@@ -150,6 +150,15 @@ The main scalar metrics are written to `outputs/wcm/eval/summary.json`. Episode-
 writes JSON/CSV curves and PNG plots under `outputs/wcm/eval/episode_curves/`.
 
 For an 8-GPU run, set the dataset variables and `GPUS=8` in `2_run_train.sh`. The launcher selects `python` for one GPU and `torchrun` for 8 GPUs.
+
+## Video Visualization
+
+We also provide a script for value curve video visualization. You can use the following command to generate videos with the same effects as those shown [above](https://github.com/sylvestf/WCM#a-world-critic-model-for-vision-language-action-reinforcement-learning).
+
+```bash
+uv pip install -e episode_value_video[all]
+bash 4_gen_video.sh
+```
 
 ## Outputs and checkpoints
 
