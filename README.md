@@ -140,7 +140,7 @@ Then launch training with runtime overrides:
 bash 2_run_train.sh
 ```
 
-When training finishes, the best checkpoint is written to `outputs/wcm/checkpoints/best.pt`. You can also try our [pretrained weight](https://huggingface.co/collections/Sylvest/wcm). Evaluate your checkpoint with:
+The code will automatically split the dataset into training and validation sets. When training finishes, the best checkpoint is written to `outputs/wcm/checkpoints/best.pt`. You can also try our [pretrained weight](https://huggingface.co/collections/Sylvest/wcm). Evaluate your checkpoint with:
 
 ```bash
 bash 3_run_eval.sh
