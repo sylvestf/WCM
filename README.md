@@ -86,6 +86,9 @@ bash 1_add_returns.sh
 
 If you are preparing simulated data to test WCM, we recommend you to download the **LIBERO-Plus LeRobot dataset** from [HuggingFace](https://huggingface.co/datasets/Sylvest/libero_plus_lerobot), and then use the `1_add_returns.sh` script along with the label file `assets/label/success_labels_liberoplus.json` to reproduce the results shown on our website. Note that this dataset only contains successful trajectories.
 
+Similarly, you can also use the successful and failed trajectories we collected on ManiSkill, which have already been converted into the format required by WCM. You can download them from [Sylvest/maniskill_wcm_lerobot](https://huggingface.co/datasets/Sylvest/maniskill_wcm_lerobot) to reproduce the results presented on our website and in the paper. We have also released the trained model weights at [Sylvest/maniskill_wcm_ckpt](https://huggingface.co/Sylvest/maniskill_wcm_ckpt).
+
+Please note that due to the large size of the simulation dataset (tens of thousands of episodes), training for one epoch may take a considerable amount of time. For the 100 real-world episodes, however, training one epoch takes only about 1 minute on a single A100 GPU.
 
 The converted data is a LeRobot v3 dataset with task metadata and episode boundaries. The default configuration uses
 the following fields:
