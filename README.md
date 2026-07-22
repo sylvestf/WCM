@@ -48,6 +48,31 @@ that is trained to capture dynamics instead of only fitting scalar returns.
       </div>
     </td>
   </tr>
+  <tr>
+    <td align="center" colspan="3" style="border: none; padding: 0 0 12px 0; font-size: 1.1em; font-weight: 500; color:rgb(234, 238, 243);">
+      WCM trained on 300 real-world pick-and-place episodes. [Training for only 1 hour.]
+    </td>
+  </tr>
+  <tr>
+    <td align="center" style="border: none; padding: 10px; width: 33%;">
+      <div style="border: 1px solid #ddd; border-radius: 10px; padding: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+        <img src="assets/pick_place_suc_1.gif" width="100%" alt="Success">
+        <p style="margin: 8px 0 0 0; color: #22863a;"><strong>✅ Success</strong></p>
+      </div>
+    </td>
+    <td align="center" style="border: none; padding: 10px; width: 33%;">
+      <div style="border: 1px solid #ddd; border-radius: 10px; padding: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+        <img src="assets/pick_place_fail_1.gif" width="100%" alt="Failure 1">
+        <p style="margin: 8px 0 0 0; color: #d73a49;"><strong>❌ Fail: Missing.</strong></p>
+      </div>
+    </td>
+    <td align="center" style="border: none; padding: 10px; width: 33%;">
+      <div style="border: 1px solid #ddd; border-radius: 10px; padding: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+        <img src="assets/pick_place_fail_2.gif" width="100%" alt="Failure 2">
+        <p style="margin: 8px 0 0 0; color: #d73a49;"><strong>❌ Fail: Missing.</strong></p>
+      </div>
+    </td>
+  </tr>
 </table>
 
 ## Why WCM?
