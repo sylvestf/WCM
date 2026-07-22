@@ -140,7 +140,7 @@ Then launch training with runtime overrides:
 bash 2_run_train.sh
 ```
 
-When training finishes, the best checkpoint is written to `outputs/wcm/checkpoints/best.pt`. You can also download our pretrained [LIBERO-Plus weight](https://huggingface.co/Sylvest/WCM_LIBEROplus). Evaluate your checkpoint with:
+When training finishes, the best checkpoint is written to `outputs/wcm/checkpoints/best.pt`. You can also try our [pretrained weight](https://huggingface.co/collections/Sylvest/wcm) on some simulation benchmarks. Evaluate your checkpoint with:
 
 ```bash
 bash 3_run_eval.sh
@@ -178,7 +178,7 @@ The paper evaluates WCM in:
 - **Real world:** seven manipulation tasks on a WidowX-250S, including dynamic grasping, deformable-object
   manipulation, long-horizon cleaning, and pick-and-place.
 
-See the [paper](https://github.com/sylvestf/WCM) for complete baselines, per-task results, ablations, and experimental details.
+See the [paper](https://github.com/sylvestf/WCM) for complete baselines, per-task results, ablations, and experimental details. We will gradually open-source ckpts of the data points claimed in the paper and the corresponding RL code.
 
 
 ## Citation
